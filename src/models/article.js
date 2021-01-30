@@ -18,6 +18,7 @@ export const ReducerRecord = {
   authorId: "",
   date: "",
   rubricId: "",
+  image: "",
   heading: "",
   body: ""
 }
