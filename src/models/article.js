@@ -1,12 +1,10 @@
-import {createSelector} from 'reselect'
+import { createSelector } from 'reselect'
 
 /**
  * Constants
  * */
 
 export const moduleName = 'article'
-const prefix = moduleName
-
 export const INITIALIZE_ARTICLE = `@@${moduleName}INITIALIZE_ARTICLE`
 
 /**
@@ -14,22 +12,22 @@ export const INITIALIZE_ARTICLE = `@@${moduleName}INITIALIZE_ARTICLE`
  * */
 
 export const ReducerRecord = {
-  id: "",
-  authorId: "",
-  date: "",
-  rubricId: "",
-  image: "",
-  heading: "",
-  body: ""
+  id: '',
+  authorId: '',
+  date: '',
+  rubricId: '',
+  image: '',
+  heading: '',
+  body: '',
 }
 
 export default function reducer(state = ReducerRecord, action) {
-  const {type, payload} = action
+  const { type, payload } = action
 
   switch (type) {
     case INITIALIZE_ARTICLE:
       return Object.assign({}, state, {
-        currencyList: payload
+        currencyList: payload,
       })
 
     default:
@@ -41,8 +39,8 @@ export default function reducer(state = ReducerRecord, action) {
  * Selectors
  * */
 
-export const stateSelector = state => state[moduleName]
-export const articleSelector = createSelector(stateSelector, state => state)
+export const stateSelector = (state) => state[moduleName]
+export const articleSelector = createSelector(stateSelector, (state) => state)
 
 /**
  * Redux thunks
@@ -53,6 +51,6 @@ const getArticle = (id) => (dispatch, getState) => {
 
   dispatch({
     type: INITIALIZE_ARTICLE,
-    payload: {}
+    payload: {},
   })
 }

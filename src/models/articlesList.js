@@ -1,4 +1,4 @@
-import {createSelector} from 'reselect'
+import { createSelector } from 'reselect'
 
 /**
  * Constants
@@ -13,14 +13,14 @@ export const INITIALIZE_ARTICLE_LIST = `@@${moduleName}INITIALIZE_ARTICLE_LIST`
  * Reducer
  * */
 
-export const ReducerRecord = {
+/*export const ReducerRecord = {
     id: "",
     authorId: "",
     authorImg: "",
     date: "",
     rubricId: "",
     heading: ""
-}
+}*/
 
 /**
  или делать сразу большой объект включающий с себя все данные в ветках.
@@ -53,41 +53,57 @@ export const ReducerRecord = {
     }
 }
 
-
-
  * */
 
+export const ReducerState = {
+  articleList: [],
+  activeArticleId: null,
+  isLoader: false,
+  errorMessage: '',
+}
 
-export default function reducer(state = ReducerRecord, action) {
-    const {type, payload} = action
+export const ReducerRecord = {
+  articleId: '',
+  authorId: '',
+  articleDate: '',
+  rubricId: '',
+  articleImg: '',
+  heading: '',
+}
 
-    switch (type) {
-        case INITIALIZE_ARTICLE_LIST:
-            return Object.assign({}, state, {
-                currencyList: payload
-            })
+export default function reducer(state = ReducerState, action) {
+  const { type, payload } = action
 
-        default:
-            return state
-    }
+  switch (type) {
+    case INITIALIZE_ARTICLE_LIST:
+      return Object.assign({}, state, {
+        currencyList: payload,
+      })
+
+    default:
+      return state
+  }
 }
 
 /**
  * Selectors
  * */
 
-export const stateSelector = state => state[moduleName]
-export const articleListSelector = createSelector(stateSelector, state => state)
+export const stateSelector = (state) => state[moduleName]
+export const articleListSelector = createSelector(
+  stateSelector,
+  (state) => state,
+)
 
 /**
  * Redux thunks
  * */
 
-const getArticleList = (id) => (dispatch, getState) => {
-    //TODO: Обращение к firebase
+export const getArticleList = (id) => (dispatch, getState) => {
+  //TODO: Обращение к firebase
 
-    dispatch({
-        type: INITIALIZE_ARTICLE_LIST,
-        payload: {}
-    })
+  dispatch({
+    type: INITIALIZE_ARTICLE_LIST,
+    payload: {},
+  })
 }

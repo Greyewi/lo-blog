@@ -1,7 +1,5 @@
-
 const About = () => {
-  return "О портале"
+  return 'О портале'
 }
-
 
 export default About
