@@ -5,7 +5,6 @@ import { createSelector } from 'reselect'
  * */
 
 export const moduleName = 'articleList'
-const prefix = moduleName
 
 export const INITIALIZE_ARTICLE_LIST = `@@${moduleName}INITIALIZE_ARTICLE_LIST`
 
@@ -13,47 +12,6 @@ export const INITIALIZE_ARTICLE_LIST = `@@${moduleName}INITIALIZE_ARTICLE_LIST`
  * Reducer
  * */
 
-/*export const ReducerRecord = {
-    id: "",
-    authorId: "",
-    authorImg: "",
-    date: "",
-    rubricId: "",
-    heading: ""
-}*/
-
-/**
- или делать сразу большой объект включающий с себя все данные в ветках.
- но тогда не нужна отдельная модель для списка, всё можно получить из одного
- объекта через filter и map.
- {
-    articles: {
-        articleId: "",
-        authorId: "",
-        articleDate: "",
-        rubricId: "",
-        articleImg: "",
-        heading: "",
-        body: ""
-    },
-    authors: {
-        authorId: "",
-        authorName: "",
-        authorInfo: "",
-        authorImg: "",
-        authorContact: {
-            facebook: "",
-            email: "",
-            whatsapp: ""
-        }
-    },
-    rubrics: {
-        rubricId: "",
-        rubricName: ""
-    }
-}
-
- * */
 
 export const ReducerState = {
   articleList: [],
