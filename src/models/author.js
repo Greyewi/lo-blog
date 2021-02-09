@@ -5,7 +5,7 @@ import { createSelector } from 'reselect'
  * */
 
 export const moduleName = 'authors'
-export const INITIALIZE_AUTHOR = `@@${moduleName}INITIALIZE_AUTHOR`
+export const INITIALIZE_AUTHOR = `@@${moduleName}/INITIALIZE_AUTHOR`
 
 /**
  * Reducer

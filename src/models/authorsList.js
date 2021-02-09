@@ -1,11 +1,13 @@
 import { createSelector } from 'reselect'
 
+import { authorsList } from '../mocks/authors'
+
 /**
  * Constants
  * */
 
 export const moduleName = 'authorsList'
-export const INITIALIZE_AUTHORS_LIST = `@@${moduleName}INITIALIZE_AUTHORS_LIST`
+export const INITIALIZE_AUTHORS_LIST = `@@${moduleName}/INITIALIZE_AUTHORS_LIST`
 
 /**
  * Reducer
@@ -61,6 +63,6 @@ const getAuthorsList = (id) => (dispatch, getState) => {
 
     dispatch({
         type: INITIALIZE_AUTHORS_LIST,
-        payload: {},
+        payload: authorsList,
     })
 }

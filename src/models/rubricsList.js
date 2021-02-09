@@ -1,11 +1,13 @@
 import { createSelector } from 'reselect'
 
+import { rubricsList } from '../mocks/rubricks'
+
 /**
  * Constants
  * */
 
 export const moduleName = 'rubricsList'
-export const INITIALIZE_RUBRICS_LIST = `@@${moduleName}INITIALIZE_RUBRICS_LIST`
+export const INITIALIZE_RUBRICS_LIST = `@@${moduleName}/INITIALIZE_RUBRICS_LIST`
 
 /**
  * Reducer
@@ -61,6 +63,6 @@ const getRubricsList = (id) => (dispatch, getState) => {
 
     dispatch({
         type: INITIALIZE_RUBRICS_LIST,
-        payload: {},
+        payload: rubricsList,
     })
 }

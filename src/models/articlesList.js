@@ -1,12 +1,14 @@
 import { createSelector } from 'reselect'
 
+import { articlesList } from '../mocks/articles'
+
 /**
  * Constants
  * */
 
 export const moduleName = 'articleList'
 
-export const INITIALIZE_ARTICLE_LIST = `@@${moduleName}INITIALIZE_ARTICLE_LIST`
+export const INITIALIZE_ARTICLE_LIST = `@@${moduleName}/INITIALIZE_ARTICLE_LIST`
 
 /**
  * Reducer
@@ -62,6 +64,6 @@ export const getArticleList = (id) => (dispatch, getState) => {
 
   dispatch({
     type: INITIALIZE_ARTICLE_LIST,
-    payload: {},
+    payload: articlesList,
   })
 }
