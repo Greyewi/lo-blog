@@ -14,21 +14,11 @@ export const INITIALIZE_ARTICLE_LIST = `@@${moduleName}/INITIALIZE_ARTICLE_LIST`
  * Reducer
  * */
 
-
 export const ReducerState = {
   articleList: [],
   activeArticleId: null,
   isLoader: false,
   errorMessage: '',
-}
-
-export const ReducerRecord = {
-  articleId: '',
-  authorId: '',
-  articleDate: '',
-  rubricId: '',
-  articleImg: '',
-  heading: '',
 }
 
 export default function reducer(state = ReducerState, action) {
@@ -37,7 +27,7 @@ export default function reducer(state = ReducerState, action) {
   switch (type) {
     case INITIALIZE_ARTICLE_LIST:
       return Object.assign({}, state, {
-        currencyList: payload,
+        articleList: payload,
       })
 
     default:
@@ -52,7 +42,7 @@ export default function reducer(state = ReducerState, action) {
 export const stateSelector = (state) => state[moduleName]
 export const articleListSelector = createSelector(
   stateSelector,
-  (state) => state,
+  (state) => state.articleList,
 )
 
 /**
